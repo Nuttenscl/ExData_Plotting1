@@ -8,7 +8,7 @@ mydata<-mydata[mydata$Date %in% c("1/2/2007","2/2/2007"),]
 ## create a Timestamp column from the Date and Time
 mydata$Timestamp <-as.POSIXct(strptime(paste(mydata$Date,mydata$Time, sep=" "),format="%e/%m/%Y %H:%M:%S"))
 
-## Open PDF device; create 'myplot.pdf' in my working directory
+## Open png device; and create 'plot3.png' in my working directory
 png(filename = "plot3.png",width = 480, height = 480, units = "px")
 
 ## Set the global parameter 
@@ -23,5 +23,5 @@ with(mydata,lines(Timestamp,Sub_metering_3,col="blue"))
 # Add the legend
 legend("topright",lty="solid",col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
-## Close the PDF file device
+## Close the png file device
 dev.off() 
